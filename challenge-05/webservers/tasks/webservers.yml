@@ -5,20 +5,27 @@
         - name: Lighttpd web server Installation using yum
           ansible.builtin.command: yum install  lighttpd 
           vars:
-            webserver_name: "lighttpd"      
+            webserver_name: "lighttpd" 
+          become: true     
           notify: Service startup
-    
+          
       rescue:
         - name: Lighttpd web server Installation using microdnf
           ansible.builtin.command: microdnf install lighttpd
       when: linux_family == "Linux"
 
     - block:
+        - name: debug
+          debug:
+            msg: "become root is {{become_root}}"
+
         - name : Lighttpd web server Installation using apt
           ansible.builtin.command: apt install lighttpd 
           vars:
-            webserver_name: "lighttpd"      
+            webserver_name: "lighttpd"  
+          become: true    
           notify: Service startup
+
       when: linux_family == "Ubuntu"
   # Handlers to start the services once packages are installed                  
 

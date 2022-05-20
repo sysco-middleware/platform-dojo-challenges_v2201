@@ -1,0 +1,9 @@
+---
+- name: Linux user
+  set_fact:
+      become_root: true     
+  when: "{% if ansible_user_id == \"root\" %}false{% else %}true{% endif %}"
+
+- name: debug root user
+  debug:
+    msg: "Debug user: {% if ansible_user_id == \"root\" %}false{% else %}true{% endif %}"

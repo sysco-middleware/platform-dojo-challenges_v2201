@@ -4,7 +4,7 @@
   ansible.builtin.command: "{% if linux_family == \"Ubuntu\" %}apt-get update -y --ignore-missing {% elif linux_family == \"Linux\"  %}yum update -y --skip-broken{% endif %}"
   register: log
   ignore_errors: yes
-  become: "{% if ansible_user_id == \"root\" %}false{% else %}true{% endif %}"
+  become: "{{become_root}}"
   async: 300
   poll: 5
 - name: Output
