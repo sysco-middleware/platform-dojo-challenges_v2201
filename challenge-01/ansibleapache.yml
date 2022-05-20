@@ -1,0 +1,19 @@
+---
+ - name: Playbook to install Apache
+   hosts: localhost
+   become: true
+   tasks: 
+    - name: Ansible apt install Apache
+      apt:
+        name: apache2
+        state: latest
+    - name: Ansible Update Cache 
+      apt:
+        state: present
+        update_cache: yes
+    - name: Ensure apache2 is running
+      service:
+        name: apache2
+        state: restarted
+        enabled: yes
+    
