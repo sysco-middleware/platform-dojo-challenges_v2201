@@ -1,0 +1,17 @@
+---
+- name: Update package libraries based on Linux family
+  tags: update_package
+  ansible.builtin.command: '{% if linux_family == "Ubuntu"%}
+      apt-get update
+    {% elif ansible_distribution =="Linux"  %}
+      yum update
+    {% endif %}'
+  register: log
+  ignore_errors: yes
+  become: '{% if ansible_user_id == "root" %}
+    false
+    {% else %}
+    true
+    {% endif %}'
+- name: Output
+  debug: var=log
