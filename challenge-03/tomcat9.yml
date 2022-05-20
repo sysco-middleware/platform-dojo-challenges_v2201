@@ -1,7 +1,9 @@
 ---
 - hosts: localhost
-  tasks: 
-  - name: Update ubuntu catalog
-    apt:
-      update_cache:yes
+  become: true
+  become_method: sudo
+  tasks:
+    - name: "Update Cache"
+      apt:
+        update_cache: true
 
