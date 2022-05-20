@@ -5,12 +5,12 @@
     - name: Ansible apt update cache
       apt:
         update_cache: true
-        ignore_errors: true
+        ignore_errors: True
     - name: Apache install on Ubuntu
       apt:
         name: apache2
         state: latest
-        ignore_errors: true
+        ignore_errors: True
     - name: ENSURE APACHE IS UP & RUNNING
       service:
          name: apache2
