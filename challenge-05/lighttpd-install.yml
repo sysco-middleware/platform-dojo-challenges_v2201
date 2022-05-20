@@ -1,0 +1,19 @@
+---
+- name: Play for installing and starting lighttpd
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Update apt-get and install lighttpd
+      apt:
+        name: lighttpd
+        update_cache: yes
+      notify: start lighttpd
+    
+    - name: start lighttpd
+      service:
+        name: lighttpd
+        state: started
+        
+
+    
+...
