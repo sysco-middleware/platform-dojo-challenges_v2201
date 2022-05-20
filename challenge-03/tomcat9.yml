@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+  tasks: 
+  - name: Update ubuntu catalog
+    apt:
+      update_cache:yes
+
