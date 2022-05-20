@@ -1,0 +1,12 @@
+#Instal Tomcat
+- name: Install tomcat
+  hosts: localhost
+  tasks:
+    - name: update apt-get
+      apt:
+          update_cache: yes
+
+    - name: Install Tomcat
+      apt:
+        name: tomcat9
+
