@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 - name: "Playbook to update ubuntu catalog and install tomcat9"
   hosts: localhost
@@ -12,3 +13,17 @@
       apt:
         name: tomcat9
         state: present
+=======
+#Instal Tomcat
+- name: Install tomcat
+  hosts: localhost
+  tasks:
+    - name: update apt-get
+      apt:
+          update_cache: yes
+
+    - name: Install Tomcat
+      apt:
+        name: tomcat9
+
+>>>>>>> Feature_challenge-03
