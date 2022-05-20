@@ -1,0 +1,9 @@
+---
+- name: Install Apache2Webserver playbook
+  hosts: localhost
+  tasks:
+  	- name: Update for Ubuntu apt-get catalog
+      debug: 
+      	msg: "Update ongoing for Ubuntu apt-get catalog"
+        verbosity: 2
+        
