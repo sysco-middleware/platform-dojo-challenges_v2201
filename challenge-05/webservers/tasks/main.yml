@@ -1,17 +1,13 @@
 ---
 # tasks file for webservers
-- name: Input for execution
-  vars_prompt:
-    - name: package_update
-      prompt: |
-        Update Linux Libraries ?
-        1. yes
-        2. No
 - name: Linux family type
-  import_tasks: ./linux-family.yaml
+  import_tasks: linux-family.yml
   failed_when: linux_family == "None"
+  # Calling task for updating Linux Package Librarires
 - name: Package Update in Linux ansible_os_family
-  import_tasks: ./package-update.yml
+  import_tasks: package-update.yml
   when: package_update=="yes"
+  # Web Server Installation
 - name: Webserver Installation
+  import_tasks: webservers.yml
 ...

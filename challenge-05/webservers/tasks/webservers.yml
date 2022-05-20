@@ -3,8 +3,6 @@
   block:
     - block:
         - name: Lighttpd web server Installation using yum
-          debug: 
-            msg: Using Yum to install Lighttpd
           ansible.builtin.command: yum install  lighttpd 
           vars:
             webserver_name: "lighttpd"      
@@ -12,24 +10,16 @@
     
       rescue:
         - name: Lighttpd web server Installation using microdnf
-          debug:
-            msg: Lighttpd web server Installation using microdnf
           ansible.builtin.command: microdnf install lighttpd
       when: linux_family == "Linux"
 
     - block:
         - name : Lighttpd web server Installation using apt
-          debug: 
-            msg: Using Apt to install Lighttpd
           ansible.builtin.command: apt install lighttpd 
           vars:
             webserver_name: "lighttpd"      
           notify: Service startup
       when: linux_family == "Ubuntu"
   # Handlers to start the services once packages are installed                  
-  handlers:
-    - name: Service startup
-      service: 
-        name: {{webserver_name}}
-        state: started
+
 ...

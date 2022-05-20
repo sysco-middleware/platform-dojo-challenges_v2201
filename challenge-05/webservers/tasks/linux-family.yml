@@ -2,16 +2,17 @@
 - name: Linux Family type
   block:
     - name: For Ubuntu
-      vars:
-        linux_family: "Ubuntu"
+      set_fact:
+        linux_family: "Ubuntu"      
       when: 
         - ansible_distribution == "Ubuntu"
         - ansible_os_family == "Debian"
+
     - name: For Linux
-      vars:
-        linux_family: "Linux"
+      set_fact:
+        linux_family: "Linux"     
       when: 
         - ansible_distribution == "Linux" or ansible_distribution == "OracleLinux"
-        - ansible_os_family == "Debian"
+        - ansible_os_family == "RedHat"
 
 ...

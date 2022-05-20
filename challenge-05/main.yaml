@@ -1,0 +1,13 @@
+---
+- hosts: ubuntu
+  #connection: local
+  vars_prompt:
+    - name: package_update
+      prompt: |
+        Update Linux Libraries ?
+        1. yes
+        2. no
+      private: no
+  roles:
+     - role: webservers
+...
