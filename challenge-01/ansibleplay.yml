@@ -12,7 +12,7 @@
         state: latest
         ignore_errors: true
     - name: ENSURE APACHE IS UP & RUNNING
-        service:
+      service:
          name: apache2
          state : started
          enabled: yes
