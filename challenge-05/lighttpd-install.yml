@@ -14,6 +14,9 @@
       service:
         name: lighttpd
         state: started
+      ansible.builtin.copy:
+        src: ./files/index.html
+        dest: /var/www/html/index.html
 
 
     
