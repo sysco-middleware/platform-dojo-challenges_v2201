@@ -2,7 +2,7 @@
 Katacoda challenges for Platform-DOJO
 
 ### Challenge 5 
- Install lighttpd on Ubuntu server in katacoda
+Install lighttpd on Ubuntu server in katacoda
  
  ### Execution steps
- ansible-playbook lighttpd-install.yml
+    ansible-playbook lighttpd-install.yml
