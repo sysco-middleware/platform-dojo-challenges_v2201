@@ -1,0 +1,24 @@
+---
+- name: Play for installing and starting lighttpd
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: Update apt-get and install lighttpd
+      apt:
+        name: lighttpd
+        update_cache: yes
+      notify: copying files
+      become: yes
+    
+  handlers:
+    - name: copying files
+      ansible.builtin.copy:
+        src: ./files/index.html
+        dest: /var/www/html/index.html
+      notify: start lighttpd
+    - name: start lighttpd
+      service:
+        name: lighttpd  
+        state: restarted
+    
+...
