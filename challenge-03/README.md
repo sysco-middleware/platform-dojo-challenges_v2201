@@ -1,7 +1,7 @@
 # Update Apt and Install Tomcat
-<number>Created yaml file with 2 task
+1. Created yaml file with 2 task
     * Apt update
     * Install Tomcat
-<number>execute command ansible-playbook tomcat9.yml
-<number>It will update the apt update with cache time for 3600 seconds
-<number>Tomcat 9 will be installed
+2. execute command ansible-playbook tomcat9.yml
+3. It will update the apt update with cache time for 3600 seconds
+4. Tomcat 9 will be installed
