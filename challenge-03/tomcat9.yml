@@ -1,12 +1,14 @@
-#Instal Tomcat
-- name: Install tomcat
+---
+- name: "Playbook to update ubuntu catalog and install tomcat9"
   hosts: localhost
+  become: true
+  become_method: sudo
   tasks:
-    - name: update apt-get
+    - name: "Update Cache"
       apt:
-          update_cache: yes
-
-    - name: Install Tomcat
+        update_cache: true
+        cache_valid_time: 3600
+    - name: "Installing Tomcat9"
       apt:
         name: tomcat9
-
+        state: present
